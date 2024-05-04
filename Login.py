@@ -10,7 +10,7 @@ root.geometry('925x500+300+200')
 root.configure(bg="#fff")
 root.resizable(False, False)
 
-# firebasestart--------------------------
+### fire base start ###
 
 firebaseConfig = {
     'apiKey': "AIzaSyCOpWi3_WbYCMkb7psfVshZUTxaYE_QkQI",
