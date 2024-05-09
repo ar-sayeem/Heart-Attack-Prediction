@@ -33,9 +33,6 @@ mroot.resizable(False, False)
 mroot.config(bg=background)
 
 
-
-
-
 ### ANALYSIS ###
 
 def analysis():

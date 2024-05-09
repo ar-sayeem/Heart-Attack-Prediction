@@ -45,7 +45,7 @@ def signup():
 ### - - - - - - - - - - - - - - - Image - - - - - - - - - - - - - - - ###
 
 
-img = PhotoImage(file='reg2.png')
+img = PhotoImage(file='Images/reg2.png')   # file='reg2.png'
 Label(window, image=img, border=0, bg='white').place(x=50, y=90)
 frame = Frame(window, width=350, height=390, bg='white')  # bg='#77C3EC'
 frame.place(x=480, y=50)
@@ -67,10 +67,10 @@ def on_leave(e):
         user.insert(0, 'Enter your gmail')
 
 
-user = Entry(frame, width=25, fg='black', border=0,
+user = Entry(frame, width=25, fg='#B3B3B3', border=0,   #  fg='white'
              bg='white', font=('Microsoft Yahei UI Light', 11))
 user.place(x=30, y=80)          # Location
-user.insert(0, 'Gmail')
+user.insert(0, 'user@gmail.com')
 user.bind("<FocusIn>", on_enter)
 user.bind("<FocusOut>", on_leave)
 Frame(frame, width=295, height=2, bg='black').place(x=25, y=107)
@@ -88,10 +88,10 @@ def on_leave(e):
         code.insert(0, 'Enter your password')
 
 
-code = Entry(frame, width=25, fg='black', border=0,
+code = Entry(frame, width=25, fg='#B3B3B3', border=0,
              bg='white', font=('Microsoft Yahei UI Light', 11))
 code.place(x=30, y=150)          # Change 70
-code.insert(0, 'Password')
+code.insert(0, 'password')
 code.bind("<FocusIn>", on_enter)
 code.bind("<FocusOut>", on_leave)
 Frame(frame, width=295, height=2, bg='black').place(x=25, y=177)    # Change 70
@@ -109,10 +109,10 @@ def on_leave(e):
         confirm_code.insert(0, 'Confirm your password')
 
 
-confirm_code = Entry(frame, width=25, fg='black', border=0,
+confirm_code = Entry(frame, width=25, fg='#B3B3B3', border=0,
                      bg='white', font=('Microsoft Yahei UI Light', 11))
 confirm_code.place(x=30, y=220)     # Change 70
-confirm_code.insert(0, 'Confirm Password')
+confirm_code.insert(0, 'confirm password')
 confirm_code.bind("<FocusIn>", on_enter)
 confirm_code.bind("<FocusOut>", on_leave)
 Frame(frame, width=295, height=2, bg='black').place(x=25, y=247)    # Change 70

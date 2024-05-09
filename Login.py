@@ -40,7 +40,7 @@ def signin():
         messagebox.showerror("Error", "Invalid username & password")
 
 
-img = PhotoImage(file='login.png')
+img = PhotoImage(file='Images/login.png')
 Label(root, image=img, bg='white').place(x=50, y=50)
 
 frame = Frame(root, width=350, height=350, bg="white")
@@ -61,49 +61,10 @@ signin_button = Button(frame, text="Sign In", command=signin)
 signin_button.place(x=50, y=200)
 
 
-# def signup_task():
-#     email= username_entry.get()
-#     password= password_entry.get()
-#     try:
-#         user = auth.create_user_with_email_and_password (email, password)
-#         messagebox.showinfo("Welcome, ", user,"Successfully signed up!")
-#     except:
-#         messagebox.showerror("Invalid","Email already exists")
-#     return
-
-
-## - - - Sign In - - - ###
-
-# def signin():
-#     username = user.get()
-#     password = code.get()
-
-#     if username == 'admin' and password == '1234':
-#         # print("Test Success")
-#         screen = Toplevel(root)
-#         screen.title("App")
-#         screen.geometry('925x500+300+200')
-#         screen.config(bg="white")
-
-#         Label(screen, text='Home Page', bg='#fff', font=(
-#             'Calibri(Body)', 31, 'bold')).pack(expand=True)
-
-#         screen.mainloop()
-
-#     elif username != 'admin' and password != '1234':
-#         messagebox.showerror("Invalid", "invalied username & password")
-
-#     elif username != 'admin':
-#         messagebox.showwarning("Invalid", "Username does not exist.")
-
-#     elif password != '1234':
-#         messagebox.showwarning("Invalid", "Wrong password.")
-
-
 ### - - - - - - - - - - - - - - - Image - - - - - - - - - - - - - - - ###
 
 
-img = PhotoImage(file='login.png')
+img = PhotoImage(file='Images/login.png')
 Label(root, image=img, bg='white').place(x=50, y=50)
 
 frame = Frame(root, width=350, height=350, bg="white")
@@ -126,7 +87,7 @@ def on_leave(e):        # Shadow Username
         user.insert(0, 'Username')
 
 
-user = Entry(frame, width=25, fg='black', border=0,
+user = Entry(frame, width=25, fg='#B3B3B3', border=0,
              bg="white", font=('Microsoft YaHei UI Light', 11))
 user.place(x=30, y=80)
 user.insert(0, 'Username')
@@ -149,7 +110,7 @@ def on_leave(e):        # Shadow Password
         code.insert(0, 'Password')
 
 
-code = Entry(frame, width=25, fg='black', border=0,
+code = Entry(frame, width=25, fg='#B3B3B3', border=0,
              bg="white", font=('Microsoft YaHei UI Light', 11))
 code.place(x=30, y=150)
 code.insert(0, 'Password')
