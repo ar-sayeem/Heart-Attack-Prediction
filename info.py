@@ -33,4 +33,8 @@ Label(icon_window,text="ca       - number of major vessels (0-3) colored by flou
 Label(icon_window,text="thal     - 0 = normal; 1 = fixed defect; 2 = reversable defect",font="arial 11").                                               place(x=20,y=460)
 
 
+Label(icon_window,text="\nRestecg represents the resting electrocardiographic result.\nThalach denotes the maximum heart rate achieved. \nExang indicates exercise-induced angina, recorded as 1 in case of pain and 0 if there is none. \nOldpeak reflects the ST depression induced by exercise. \nSlope signifies the slope of the peak exercise ST segment. \nCa represents the number of major coronary vessels (0-3) colored by fluoroscopy.", font="arial 8").place(x=20,y=490)
+
+
+
 icon_window.mainloop()

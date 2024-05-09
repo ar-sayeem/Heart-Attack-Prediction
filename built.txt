@@ -11,3 +11,17 @@ oldpeak     - ST depression induced by exercise relative to rest
 slope       - the slope of the peak exercise ST segment (0 = upsloping; 1 = flat; 2 = downsloping)
 ca          - number of major vessels (0-3) colored by flourosopy
 thal        - 0 = normal; 1 = fixed defect; 2 = reversable defect
+
+
+
+Restecg represents the resting electrocardiographic result. 
+
+Thalach denotes the maximum heart rate achieved. 
+
+Exang indicates exercise-induced angina, recorded as 1 in case of pain and 0 if there is none. 
+
+Oldpeak reflects the ST depression induced by exercise. 
+
+Slope signifies the slope of the peak exercise ST segment. 
+
+Ca represents the number of major coronary vessels (0-3) colored by fluoroscopy.
