@@ -1,0 +1,9 @@
+CMD codes:
+
+pip install pyinstaller
+
+pyinstaller main.py
+
+pyinstaller main.py --onefile
+
+pyinstaller login.py --onefile -w
