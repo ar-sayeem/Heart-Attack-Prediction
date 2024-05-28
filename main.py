@@ -223,7 +223,9 @@ def Info():
 ### LogOut ###
 
 def logout():
-    mroot.destroy()
+    mroot.destroy()  # Close the current Tkinter window
+    os.system("python main.py")  # Reopen the main.py script
+
 
 
 ### CLEAR ###
@@ -622,7 +624,7 @@ mode.place(x=350, y=495)
 
 ### LogOut Button ###
 
-logout_icon = PhotoImage(file="Images/logout35x35.png")
+logout_icon = PhotoImage(file="Images/restart35x35.png")     #logout35x35.pn
 logout_button = Button(mroot, image=logout_icon,
                        bg="#df2d4b", cursor="hand2", bd=0, command=logout)
 logout_button.place(x=1390, y=87)   #x=1390, y=60
