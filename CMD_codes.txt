@@ -1,4 +1,4 @@
-CMD codes:
+#CMD codes:
 
 pip install pyinstaller
 
@@ -7,3 +7,7 @@ pyinstaller main.py
 pyinstaller main.py --onefile
 
 pyinstaller login.py --onefile -w
+
+
+#terminal codes:
+auto-py-to-exe

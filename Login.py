@@ -40,7 +40,7 @@ def signin():
         messagebox.showerror("Error", "Invalid username & password")
 
 
-img = PhotoImage(file='Images/login.png')
+img = PhotoImage(file="Images/login.png")   # Images/login.png
 Label(root, image=img, bg='white').place(x=50, y=50)
 
 frame = Frame(root, width=350, height=350, bg="white")
@@ -64,7 +64,7 @@ signin_button.place(x=50, y=200)
 ### - - - - - - - - - - - - - - - Image - - - - - - - - - - - - - - - ###
 
 
-img = PhotoImage(file='Images/login.png')
+img = PhotoImage(file="Images/login.png")   # Images/login.png
 Label(root, image=img, bg='white').place(x=50, y=50)
 
 frame = Frame(root, width=350, height=350, bg="white")
