@@ -204,7 +204,7 @@ def Info():
 
     Label(icon_window,text="Age - Age in years",font="arial 11").                                                                                      place(x=20,y=100)
     Label(icon_window,text="Sex  - Sex [Male / Female]",font="arial 11").                                                                         place(x=20,y=130)
-    Label(icon_window,text="cp - Chest pain type (Typical angina; Atypical angina; Non-anginal pain; Asymptomatic)",font="arial 11"). place(x=20,y=160)
+    Label(icon_window,text="Cp - Chest pain type (Typical angina; Atypical angina; Non-anginal pain; Asymptomatic)",font="arial 11"). place(x=20,y=160)
     Label(icon_window,text="Trestbps - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
     Label(icon_window,text="Chol - Serum Cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
     Label(icon_window,text="Fbs - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]",font="arial 11").                                             place(x=20,y=250)
