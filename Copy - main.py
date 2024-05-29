@@ -95,7 +95,7 @@ def analysis():
          D = int(trestbps.get())
          E = int(chol.get())
          H = int(thalach.get())
-         J = int(oldpeak.get())
+         J = float(oldpeak.get())
     except:
         messagebox.showerror("missing data", "Few missing data entry!")
         return
@@ -200,22 +200,21 @@ def Info():
     Label(icon_window, text="Information Related to dataset", font="robot 19 bold").pack (padx=20, pady=20)
 
 
-    ### info ###
+    ### - - - - - - - - - - - - - - - info - - - - - - - - - - - - - - -###
 
-    Label(icon_window,text="age      - age in years",font="arial 11").                                                                                      place(x=20,y=100)
-    Label(icon_window,text="sex      - sex (1 = male; 0 = female",font="arial 11").                                                                         place(x=20,y=130)
-    Label(icon_window,text="cp       - chest pain type (0 = typical angina; 1 = atypical angina; 2 = non-anginal pain; 3 = asymptomatic)",font="arial 11"). place(x=20,y=160)
-    Label(icon_window,text="trestbps - resting blood pressure (in mm Hg on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
-    Label(icon_window,text="chol     - serum cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
-    Label(icon_window,text="fbs      - fasting blood sugar > 120 mg/dl (1 = true; 0 = false)",font="arial 11").                                             place(x=20,y=250)
-    Label(icon_window,text="restecg  - resting electrocardiographic results (0 = normal; 1 = having ST-T; 2 = hypertrophy)",font="arial 11").               place(x=20,y=280)
-    Label(icon_window,text="thalach  - maximum heart rate achieved",font="arial 11").                                                                       place(x=20,y=310)
-    Label(icon_window,text="exang    - exercise induced angina (1 = yes; 0 = no)",font="arial 11").                                                         place(x=20,y=340)
-    Label(icon_window,text="oldpeak  - ST depression induced by exercise relative to rest",font="arial 11").                                                place(x=20,y=370)
-    Label(icon_window,text="slope    - the slope of the peak exercise ST segment (0 = upsloping; 1 = flat; 2 = downsloping)",font="arial 11").              place(x=20,y=400)
-    Label(icon_window,text="ca       - number of major vessels (0-3) colored by flourosopy",font="arial 11").                                               place(x=20,y=430)
-    Label(icon_window,text="thal     - 0 = normal; 1 = fixed defect; 2 = reversable defect",font="arial 11").                                               place(x=20,y=460)
-
+    Label(icon_window,text="Age - Age in years",font="arial 11").                                                                                      place(x=20,y=100)
+    Label(icon_window,text="Sex  - Sex [Male / Female]",font="arial 11").                                                                         place(x=20,y=130)
+    Label(icon_window,text="cp - Chest pain type (Typical angina; Atypical angina; Non-anginal pain; Asymptomatic)",font="arial 11"). place(x=20,y=160)
+    Label(icon_window,text="Trestbps - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
+    Label(icon_window,text="Chol - Serum Cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
+    Label(icon_window,text="Fbs - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]",font="arial 11").                                             place(x=20,y=250)
+    Label(icon_window,text="Restecg - Resting electrocardiographic results (0 = normal; 1 = having ST-T; 2 = hypertrophy)",font="arial 11").               place(x=20,y=280)
+    Label(icon_window,text="Thalach - Maximum heart rate achieved",font="arial 11").                                                                       place(x=20,y=310)
+    Label(icon_window,text="Exang - Exercise induced angina [Yes / No]",font="arial 11").                                                         place(x=20,y=340)
+    Label(icon_window,text="Oldpeak - ST depression induced by exercise relative to rest",font="arial 11").                                                place(x=20,y=370)
+    Label(icon_window,text="Slope - The slope of the peak exercise ST segment (Upsloping; Flat; Downsloping)",font="arial 11").              place(x=20,y=400)
+    Label(icon_window,text="Ca - Number of major vessels (0-3) colored by flourosopy",font="arial 11").                                               place(x=20,y=430)
+    Label(icon_window,text="Thal(Thalassemia) - 0 = normal; 1 = Fixed defect; 2 = reversable defect",font="arial 11").                                               place(x=20,y=460)
 
     icon_window.mainloop()
 
@@ -223,7 +222,9 @@ def Info():
 ### LogOut ###
 
 def logout():
-    mroot.destroy()
+    mroot.destroy()  # Close the current Tkinter window
+    os.system("python main.py")  # Reopen the main.py script
+
 
 
 ### CLEAR ###
@@ -247,10 +248,6 @@ def save():
     today = datetime.date.today()
     E2 = today.year-DOB.get()
 
-    # try:
-    #     F2=selection()
-    # except:
-    #     messagebox.showerror("Missing Data!", "Please select gender!")
     try:
         F2=selection()
     except:
@@ -268,13 +265,13 @@ def save():
     except:
         messagebox.showerror("Mission Data","Please select cp!")
     try:
-        K2=restecg_combobox.get()
-    except:
-        messagebox.showerror("Mission Data","Please select restcg!")
-    try:
         O2=selection5()
     except:
         messagebox.showerror("Mission Data","Please select slope!")
+    try:
+        K2=restecg_combobox.get()
+    except:
+        messagebox.showerror("Mission Data","Please select restcg!")
     try:
         P2=ca_combobox.get()
     except:
@@ -373,7 +370,7 @@ dob_entry = Entry(Heading_entry, textvariable=DOB, width=20,
 dob_entry.place(x=450, y=130)
 
 
-### BODY ###
+### - - - - - - - - - - - BODY - - - - - - - - - - - - ###
 
 # mroot, width=490, height=260, bg="#dbe0e3"
 Detail_entry = Frame(mroot, width=480, height=245, bg="#dbe0e3")
@@ -437,32 +434,32 @@ R1.place(x=43, y=10)
 R2.place(x=93, y=10)
 
 fbs = IntVar()
-R3 = Radiobutton(Detail_entry, text='True', variable=fbs,
+R3 = Radiobutton(Detail_entry, text='Yes', variable=fbs,
                  value=1, command=selection2)
-R4 = Radiobutton(Detail_entry, text="False", variable=fbs,
+R4 = Radiobutton(Detail_entry, text="No", variable=fbs,
                  value=2, command=selection2)
 R3.place(x=213, y=10)
-R4.place(x=263, y=10)
+R4.place(x=258, y=10)   #R4.place(x=260, y=10)
 
 exang = IntVar()
 R5 = Radiobutton(Detail_entry, text='Yes', variable=exang,
                  value=1, command=selection3)
 R6 = Radiobutton(Detail_entry, text="No", variable=exang,
                  value=2, command=selection3)
-R5.place(x=387, y=10)
+R5.place(x=387, y=10)   #R5.place(x=387, y=10)
 R6.place(x=430, y=10)
 
 ### Combobox ###
 
-Label(Detail_entry, text="cp: ", font="arial 13",
+Label(Detail_entry, text="cp: ", font="arial 11",
       bg=framebg, fg=framefg). place(x=5, y=50)
-Label(Detail_entry, text="restecg: ", font="arial 13",
+Label(Detail_entry, text="restecg: ", font="arial 11",
       bg=framebg, fg=framefg). place(x=5, y=90)
-Label(Detail_entry, text="slope: ", font="arial 13",
+Label(Detail_entry, text="slope: ", font="arial 11",
       bg=framebg, fg=framefg). place(x=5, y=130)
-Label(Detail_entry, text="ca: ", font="arial 13",
+Label(Detail_entry, text="ca: ", font="arial 11",
       bg=framebg, fg=framefg). place(x=5, y=170)
-Label(Detail_entry, text="thal: ", font="arial 13",
+Label(Detail_entry, text="thal: ", font="arial 11",
       bg=framebg, fg=framefg). place(x=5, y=210)
 
 # Label(Detail_entry, text="oldpeak: ", font="arial 13",
@@ -471,13 +468,13 @@ Label(Detail_entry, text="thal: ", font="arial 13",
 
 def selection4():
     input = cp_combobox.get()
-    if input == "0 = typical angina":
+    if input == "Typical angina":
         return (0)
-    elif input == "1 = atypical angina":
+    elif input == "Atypical angina":
         return (1)
-    elif input == "2 = non-anginal pain":
+    elif input == "Non-anginal pain":
         return (2)
-    elif input == "3 = asymptomatic":
+    elif input == "Asymptomatic":
         return (3)
     else:
         print(exang)
@@ -485,26 +482,26 @@ def selection4():
 
 def selection5():
     input = slope_combobox.get()
-    if input == "0 = upsloping":
+    if input == "Upsloping":
         return (0)
-    elif input == "1 = flat":
+    elif input == "Flat":
         return (1)
-    elif input == "2 = downsloping":
+    elif input == "Downsloping":
         return (2)
     else:
         print(exang)
 
 
-cp_combobox = Combobox(Detail_entry, values=['0 = typical angina', '1 = atypical angina',
-                       '2 = non-anginal pain', '3 = asymptomatic'], font="arial 12", state="r", width=14)
+cp_combobox = Combobox(Detail_entry, values=['Typical angina', 'Atypical angina',
+                       'Non-anginal pain', 'Asymptomatic'], font="arial 12", state="r", width=14)
 restecg_combobox = Combobox(
     Detail_entry, values=['0', '1', '2'], font="arial 12", state="r", width=11)
 slope_combobox = Combobox(Detail_entry, values=[
-                          '0 = upsloping', '1 = flat', '2 = downsloping'], font="arial 12", state="r", width=12)
+                          'Upsloping', 'Flat', 'Downsloping'], font="arial 12", state="r", width=12)
 ca_combobox = Combobox(Detail_entry, values=[
-                       '0', '1', '2', '3', '4'], font="arial 12", state="r", width=14)
+                       '0', '1', '2', '3'], font="arial 12", state="r", width=14)
 thal_combobox = Combobox(Detail_entry, values=[
-                         '0', '1', '2', '3'], font="arial 12", state="r", width=14)
+                         '0', '1', '2'], font="arial 12", state="r", width=14)  # 'Normal', 'Fixed defect', 'Reversable defect'
 
 cp_combobox.place(x=50, y=50)
 restecg_combobox.place(x=80, y=90)
@@ -515,16 +512,18 @@ thal_combobox.place(x=50, y=210)
 
 ### DATA ETRY BOX ###
 
-Label(Detail_entry, text="Smoking: ", font="arial 13",
-      width=7, bg="#dbe0e3", fg="black"). place(x=240, y=50)
-Label(Detail_entry, text="trestbps: ", font="arial 13",
-      width=7, bg=framebg, fg=framefg). place(x=240, y=90)
-Label(Detail_entry, text="chol: ", font="arial 13",
-      width=7, bg=framebg, fg=framefg). place(x=240, y=130)
-Label(Detail_entry, text="thalach: ", font="arial 13",
-      width=7, bg=framebg, fg=framefg). place(x=240, y=170)
-Label(Detail_entry, text="oldpeak: ", font="arial 13",
-      width=7, bg=framebg, fg=framefg).place(x=240, y=210)
+# font="arial 11, width=7
+
+Label(Detail_entry, text="Smoking: ", font="arial 11",
+      width=11, bg="#dbe0e3", fg="black"). place(x=240, y=50)
+Label(Detail_entry, text="trestbps(mm): ", font="arial 11",
+      width=11, bg=framebg, fg=framefg). place(x=240, y=90)
+Label(Detail_entry, text="chol(mg/dl): ", font="arial 11",
+      width=11, bg=framebg, fg=framefg). place(x=240, y=130)
+Label(Detail_entry, text="thalach(max): ", font="arial 11",
+      width=11, bg=framebg, fg=framefg). place(x=240, y=170)
+Label(Detail_entry, text="oldpeak(0-3.0): ", font="arial 11",
+      width=11, bg=framebg, fg=framefg).place(x=240, y=210)
 
 
 trestbps = StringVar()
@@ -541,10 +540,11 @@ thalach_entry = Entry(Detail_entry, textvariable=thalach,
 oldpeak_entry = Entry(Detail_entry, textvariable=oldpeak,
                       width=10, font="arial 15", bg="#ededed", fg="#222222", bd=0)
 
-trestbps_entry.place(x=320, y=90)
-chol_entry.place(x=320, y=130)
-thalach_entry.place(x=320, y=170)
-oldpeak_entry.place(x=320, y=210)
+# x=320
+trestbps_entry.place(x=350, y=90)
+chol_entry.place(x=350, y=130)
+thalach_entry.place(x=350, y=170)
+oldpeak_entry.place(x=350, y=210)
 
 
 ### Analysis Image ###
@@ -619,7 +619,7 @@ mode.place(x=350, y=495)
 
 ### LogOut Button ###
 
-logout_icon = PhotoImage(file="Images/logout35x35.png")
+logout_icon = PhotoImage(file="Images/restart35x35.png")     #logout35x35.pn
 logout_button = Button(mroot, image=logout_icon,
                        bg="#df2d4b", cursor="hand2", bd=0, command=logout)
 logout_button.place(x=1390, y=87)   #x=1390, y=60

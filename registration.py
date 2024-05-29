@@ -67,7 +67,7 @@ def on_leave(e):
         user.insert(0, 'Enter your gmail')
 
 
-user = Entry(frame, width=25, fg='#B3B3B3', border=0,   #  fg='white'
+user = Entry(frame, width=25, fg='#474747', border=0,   #  fg='white'   #B3B3B3
              bg='white', font=('Microsoft Yahei UI Light', 11))
 user.place(x=30, y=80)          # Location
 user.insert(0, 'user@gmail.com')
@@ -88,7 +88,7 @@ def on_leave(e):
         code.insert(0, 'Enter your password')
 
 
-code = Entry(frame, width=25, fg='#B3B3B3', border=0,
+code = Entry(frame, width=25, fg='#474747', border=0,   # #B3B3B3
              bg='white', font=('Microsoft Yahei UI Light', 11))
 code.place(x=30, y=150)          # Change 70
 code.insert(0, 'password')
@@ -109,7 +109,7 @@ def on_leave(e):
         confirm_code.insert(0, 'Confirm your password')
 
 
-confirm_code = Entry(frame, width=25, fg='#B3B3B3', border=0,
+confirm_code = Entry(frame, width=25, fg='#474747', border=0,   # #B3B3B3
                      bg='white', font=('Microsoft Yahei UI Light', 11))
 confirm_code.place(x=30, y=220)     # Change 70
 confirm_code.insert(0, 'confirm password')

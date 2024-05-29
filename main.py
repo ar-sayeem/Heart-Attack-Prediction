@@ -33,7 +33,7 @@ mroot.resizable(False, False)
 mroot.config(bg=background)
 
 
-### ANALYSIS ###
+### - - - - - - - - - - - - - - - - - - - - - ANALYSIS - - - - - - - - - - - - - - - - - - - - - ###
 
 def analysis():
 
@@ -68,7 +68,7 @@ def analysis():
         return
     
     try:
-         G = int(restecg_combobox.get())
+         G = int(selection6())    #int(restecg_combobox.get())
     except:
         messagebox.showerror("missing", "Please select restecg!")
         return
@@ -86,7 +86,7 @@ def analysis():
         return
 
     try:
-         M = int(thal_combobox.get())
+         M = int(selection7())  #int(thal_combobox.get())
     except:
         messagebox.showerror("missing", "Please select thal!")
         return
@@ -101,7 +101,7 @@ def analysis():
         return
 
     
-    ### TESTING Data Entry ###
+    ### - - - - - - - - - - - - - - - - - - - - - TESTING Data Entry - - - - - - - - - - - - - - - - - - - - - ###
 
     print("A is age: ",A)
     print("B is gender: ",B)
@@ -118,7 +118,7 @@ def analysis():
     print("M is thal: ",M)
 
 
-    ### First Graph ###
+    ### - - - - - - - - - - - - - - - - - - - - - First Graph - - - - - - - - - - - - - - - - - - - - - ###
     
     f = Figure(figsize=(5,5), dpi=65)       #dpi-100
     a = f.add_subplot(111)      #f.add_subplot(111)
@@ -128,7 +128,7 @@ def analysis():
     canvas._tkcanvas.place(width=250,height=250,x=600,y=230)        # G1 width=250,height=250,x=600,y=240
 
 
-    #### Second graph ###
+    #### - - - - - - - - - - - - - - - - - - - - - Second graph - - - - - - - - - - - - - - - - - - - - - ###
 
     f2 = Figure(figsize=(5,5), dpi=65)      #dpi-100
     a2 = f2.add_subplot(111)        #f.add_subplot(111)
@@ -138,7 +138,7 @@ def analysis():
     canvas2._tkcanvas.place(width=250, height=250,x=860,y=230)      # G2 width=250, height=250,x=860,y=240
 
 
-    ### Third graph ###
+    ### - - - - - - - - - - - - - - - - - - - - - Third graph - - - - - - - - - - - - - - - - - - - - - ###
 
     f3 = Figure(figsize=(5,5), dpi=65)      #dpi-100
     a3 = f3.add_subplot(111)        #f.add_subplot(111)
@@ -148,7 +148,7 @@ def analysis():
     canvas3._tkcanvas.place(width=250,height=250,x=600,y=470)
 
 
-    #### Fourth graph ###
+    #### - - - - - - - - - - - - - - - - - - - - - Fourth graph - - - - - - - - - - - - - - - - - - - - - ###
 
     f4 = Figure(figsize=(5,5), dpi=65)      #dpi-100
     a4 = f4.add_subplot(111)        #f.add_subplot(111)
@@ -158,13 +158,13 @@ def analysis():
     canvas4._tkcanvas.place(width=250,height=250,x=860, y=470)
 
 
-    ### Input DATA ###
+    ### - - - - - - - - - - - - - - - - - - - - - Input DATA - - - - - - - - - - - - - - - - - - - - - ###
     
     input_data=(A,B,C,D,E,F,G,H,I,J,K,L,M)
     input_data_as_numpy_array=np.asanyarray(input_data)
 
 
-    ### Reshape the numpy array ### ***
+    ### - - - - - - - - - - - - - - - - - - - - - Reshape the numpy array - - - - - - - - - - - - - - - - - - - - - ###
 
     input_data_reshape= input_data_as_numpy_array.reshape(1,-1)
     prediction= model.predict(input_data_reshape)
@@ -181,7 +181,7 @@ def analysis():
         report1.config(text=f"{name}, \nyou have a heart disease")
 
 
-### Info Window(Click window Button) ###
+### - - - - - - - - - - - - - - - - - - - - - Info Window(Click window Button) - - - - - - - - - - - - - - - - - - - - - ###
 
 def Info():
     icon_window=Toplevel(mroot)
@@ -189,38 +189,37 @@ def Info():
     icon_window.geometry("700x600+400+100")
 
 
-    ### icon_image ###
+    ### - - - - - - - - - - - - - - - - - - - - - icon_image - - - - - - - - - - - - - - - - - - - - - ###
 
     icon_image=PhotoImage(file="Images/info25x25.png")
     icon_window.iconphoto (False, icon_image)
 
 
-    ### Heading ###
+    ### - - - - - - - - - - - - - - - - - - - - - Heading - - - - - - - - - - - - - - - - - - - - - ###
 
     Label(icon_window, text="Information Related to dataset", font="robot 19 bold").pack (padx=20, pady=20)
 
 
-    ### info ###
+    ### - - - - - - - - - - - - - - - - - - - - - info - - - - - - - - - - - - - - - - - - - - - ###
 
-    Label(icon_window,text="age - age in years",font="arial 11").                                                                                      place(x=20,y=100)
-    Label(icon_window,text="sex  - sex (1 = male; 0 = female",font="arial 11").                                                                         place(x=20,y=130)
-    Label(icon_window,text="cp - chest pain type (Typical angina; Atypical angina; Non-anginal pain; Asymptomatic)",font="arial 11"). place(x=20,y=160)
-    Label(icon_window,text="trestbps - resting blood pressure (in mm Hg on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
-    Label(icon_window,text="chol - serum cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
-    Label(icon_window,text="fbs - fasting blood sugar > 120 mg/dl (1 = true; 0 = false)",font="arial 11").                                             place(x=20,y=250)
-    Label(icon_window,text="restecg - resting electrocardiographic results (0 = normal; 1 = having ST-T; 2 = hypertrophy)",font="arial 11").               place(x=20,y=280)
-    Label(icon_window,text="thalach - maximum heart rate achieved",font="arial 11").                                                                       place(x=20,y=310)
-    Label(icon_window,text="exang - exercise induced angina (1 = yes; 0 = no)",font="arial 11").                                                         place(x=20,y=340)
-    Label(icon_window,text="oldpeak - ST depression induced by exercise relative to rest",font="arial 11").                                                place(x=20,y=370)
-    Label(icon_window,text="slope - the slope of the peak exercise ST segment (Upsloping; Flat; Downsloping)",font="arial 11").              place(x=20,y=400)
-    Label(icon_window,text="ca - number of major vessels (0-4) colored by flourosopy",font="arial 11").                                               place(x=20,y=430)
-    Label(icon_window,text="thal(thalassemia) - 0 = normal; 1 = fixed defect; 2 = reversable defect",font="arial 11").                                               place(x=20,y=460)
-
+    Label(icon_window,text="Age - Age in years",font="arial 11").                                                                                      place(x=20,y=100)
+    Label(icon_window,text="Sex  - Sex [Male / Female]",font="arial 11").                                                                         place(x=20,y=130)
+    Label(icon_window,text="cp - Chest pain type (Typical angina; Atypical angina; Non-anginal pain; Asymptomatic)",font="arial 11"). place(x=20,y=160)
+    Label(icon_window,text="Trestbps - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
+    Label(icon_window,text="Chol - Serum Cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
+    Label(icon_window,text="Fbs - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]",font="arial 11").                                             place(x=20,y=250)
+    Label(icon_window,text="Restecg - Resting electrocardiographic results (0 = normal; 1 = having ST-T; 2 = hypertrophy)",font="arial 11").               place(x=20,y=280)
+    Label(icon_window,text="Thalach - Maximum heart rate achieved",font="arial 11").                                                                       place(x=20,y=310)
+    Label(icon_window,text="Exang - Exercise induced angina [Yes / No]",font="arial 11").                                                         place(x=20,y=340)
+    Label(icon_window,text="Oldpeak - ST depression induced by exercise relative to rest",font="arial 11").                                                place(x=20,y=370)
+    Label(icon_window,text="Slope - The slope of the peak exercise ST segment (Upsloping; Flat; Downsloping)",font="arial 11").              place(x=20,y=400)
+    Label(icon_window,text="Ca - Number of major vessels (0-3) colored by flourosopy",font="arial 11").                                               place(x=20,y=430)
+    Label(icon_window,text="Thal(Thalassemia) - 0 = normal; 1 = Fixed defect; 2 = reversable defect",font="arial 11").                                               place(x=20,y=460)
 
     icon_window.mainloop()
 
 
-### LogOut ###
+### - - - - - - - - - - - - - - - - - - - - - LogOut - - - - - - - - - - - - - - - - - - - - - ###
 
 def logout():
     mroot.destroy()  # Close the current Tkinter window
@@ -228,7 +227,7 @@ def logout():
 
 
 
-### CLEAR ###
+### - - - - - - - - - - - - - - - - - - - - - CLEAR - - - - - - - - - - - - - - - - - - - - - ###
 
 def Clear():
     Name.get('')
@@ -239,7 +238,7 @@ def Clear():
     oldpeak.get('')
 
 
-### Save ###
+### - - - - - - - - - - - - - - - - - - - - - Save - - - - - - - - - - - - - - - - - - - - - ###
 
 def save():
     B2 = Name.get()
@@ -249,10 +248,6 @@ def save():
     today = datetime.date.today()
     E2 = today.year-DOB.get()
 
-    # try:
-    #     F2=selection()
-    # except:
-    #     messagebox.showerror("Missing Data!", "Please select gender!")
     try:
         F2=selection()
     except:
@@ -270,13 +265,13 @@ def save():
     except:
         messagebox.showerror("Mission Data","Please select cp!")
     try:
-        K2=restecg_combobox.get()
-    except:
-        messagebox.showerror("Mission Data","Please select restcg!")
-    try:
         O2=selection5()
     except:
         messagebox.showerror("Mission Data","Please select slope!")
+    try:
+        K2=restecg_combobox.get()
+    except:
+        messagebox.showerror("Mission Data","Please select restcg!")
     try:
         P2=ca_combobox.get()
     except:
@@ -308,22 +303,21 @@ def save():
     print(P2)
     print(Q2)
 
-    #Save_Data_MySql(B2, C2, int(D2), int(E2), int(F2), int(G2), int(H2), int(I2), int(J2), int(K2), int(L2), int(M2), float(N2), int(O2),int(P2), int(prediction[0]))
 
-### icon ###
+### - - - - - - - - - - - - - - - - - - - - - icon - - - - - - - - - - - - - - - - - - - - - ###
 
 image_icon = PhotoImage(file="Images/icon3.png")
 mroot.iconphoto(False, image_icon)
 
 
-### Header section ###
+### - - - - - - - - - - - - - - - - - - - - - Header section - - - - - - - - - - - - - - - - - - - - - ###
 
 logo = PhotoImage(file="Images/header.png")      #Images/cover600x200.png
 myimage = Label(image=logo, bg=background)
 myimage.place(x=0, y=0)
 
 
-### Frame ###
+### - - - - - - - - - - - - - - - - - - - - - Frame - - - - - - - - - - - - - - - - - - - - - ###
 
 #mroot, width=800, height=190, bg="#df2d4b"
 Heading_entry = Frame(mroot, width=849, height=200, bg="#df2d4b")
@@ -375,7 +369,7 @@ dob_entry = Entry(Heading_entry, textvariable=DOB, width=20,
 dob_entry.place(x=450, y=130)
 
 
-### BODY ###
+### - - - - - - - - - - - BODY - - - - - - - - - - - - ###
 
 # mroot, width=490, height=260, bg="#dbe0e3"
 Detail_entry = Frame(mroot, width=480, height=245, bg="#dbe0e3")
@@ -439,19 +433,19 @@ R1.place(x=43, y=10)
 R2.place(x=93, y=10)
 
 fbs = IntVar()
-R3 = Radiobutton(Detail_entry, text='True', variable=fbs,
+R3 = Radiobutton(Detail_entry, text='Yes', variable=fbs,
                  value=1, command=selection2)
-R4 = Radiobutton(Detail_entry, text="False", variable=fbs,
+R4 = Radiobutton(Detail_entry, text="No", variable=fbs,
                  value=2, command=selection2)
 R3.place(x=213, y=10)
-R4.place(x=263, y=10)
+R4.place(x=258, y=10)   #R4.place(x=260, y=10)
 
 exang = IntVar()
 R5 = Radiobutton(Detail_entry, text='Yes', variable=exang,
                  value=1, command=selection3)
 R6 = Radiobutton(Detail_entry, text="No", variable=exang,
                  value=2, command=selection3)
-R5.place(x=387, y=10)
+R5.place(x=387, y=10)   #R5.place(x=387, y=10)
 R6.place(x=430, y=10)
 
 ### Combobox ###
@@ -497,16 +491,42 @@ def selection5():
         print(exang)
 
 
+#-----------------------------------------------Two new combobox---------------------------------------------#
+def selection6():
+    input = restecg_combobox.get()
+    if input == "Normal":
+        return (0)
+    elif input == "Having ST-T":
+        return (1)
+    elif input == "Hypertrophy":
+        return (2)
+    else:
+        print(exang)
+
+
+def selection7():
+    input = thal_combobox.get()
+    if input == "Normal":
+        return (0)
+    elif input == "Fixed defect":
+        return (1)
+    elif input == "Reversable defect":
+        return (2)
+    else:
+        print(exang)
+#-----------------------------------------------Two new combobox---------------------------------------------#
+
+
 cp_combobox = Combobox(Detail_entry, values=['Typical angina', 'Atypical angina',
                        'Non-anginal pain', 'Asymptomatic'], font="arial 12", state="r", width=14)
 restecg_combobox = Combobox(
-    Detail_entry, values=['0', '1', '2'], font="arial 12", state="r", width=11)
+    Detail_entry, values=['Normal', 'Having ST-T', 'Hypertrophy'], font="arial 12", state="r", width=11)        # 'Normal', 'Having ST-T', 'Hypertrophy'    #'0', '1', '2'
 slope_combobox = Combobox(Detail_entry, values=[
                           'Upsloping', 'Flat', 'Downsloping'], font="arial 12", state="r", width=12)
 ca_combobox = Combobox(Detail_entry, values=[
                        '0', '1', '2', '3'], font="arial 12", state="r", width=14)
 thal_combobox = Combobox(Detail_entry, values=[
-                         '0', '1', '2'], font="arial 12", state="r", width=14)
+                         'Normal', 'Fixed defect', 'Reversable defect'], font="arial 12", state="r", width=14)  # 'Normal', 'Fixed defect', 'Reversable defect' #'0', '1', '2'
 
 cp_combobox.place(x=50, y=50)
 restecg_combobox.place(x=80, y=90)

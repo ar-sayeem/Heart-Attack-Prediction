@@ -10,7 +10,7 @@ root.geometry('925x500+300+200')
 root.configure(bg="#fff")
 root.resizable(False, False)
 
-### fire base start ###
+### - - - - - - - - - - - - fire base start - - - - - - - - - - - - - - ###
 
 firebaseConfig = {
     'apiKey': "AIzaSyCOpWi3_WbYCMkb7psfVshZUTxaYE_QkQI",
@@ -84,13 +84,13 @@ def on_enter(e):
 def on_leave(e):        # Shadow Username
     name = user.get()
     if name == '':
-        user.insert(0, 'Username')
+        user.insert(0, 'Enter your gmail')
 
 
-user = Entry(frame, width=25, fg='#B3B3B3', border=0,
+user = Entry(frame, width=25, fg='#474747', border=0,   # #B3B3B3
              bg="white", font=('Microsoft YaHei UI Light', 11))
 user.place(x=30, y=80)
-user.insert(0, 'Username')
+user.insert(0, 'user@gmail.com')
 user.bind('<FocusIn>', on_enter)
 user.bind('<FocusOut>', on_leave)
 
@@ -107,13 +107,13 @@ def on_enter(e):
 def on_leave(e):        # Shadow Password
     name = code.get()
     if name == '':
-        code.insert(0, 'Password')
+        code.insert(0, 'Enter your password')
 
 
-code = Entry(frame, width=25, fg='#B3B3B3', border=0,
+code = Entry(frame, width=25, fg='#474747', border=0,   # #B3B3B3
              bg="white", font=('Microsoft YaHei UI Light', 11))
 code.place(x=30, y=150)
-code.insert(0, 'Password')
+code.insert(0, 'password')
 code.bind('<FocusIn>', on_enter)
 code.bind('<FocusOut>', on_leave)
 
@@ -121,19 +121,6 @@ Frame(frame, width=295, height=2, bg='black').place(x=25, y=177)
 
 
 ### - - - - - - - - - - - - - - - Buttons - - - - - - - - - - - - - - - ###
-# def open_login_script():
-#     subprocess.Popen(["python", "registration.py"])
-#     root.destroy()
-
-# Button(frame, width=39, pady=7, text='Sign in', bg='#57a1f8',
-#        fg='white', border=0, command=signin).place(x=35, y=204)
-# label = Label(frame, text="Don't have an account?", fg='black',
-#               bg='white', font=('Microsoft YaHei UI Light', 9))
-# label.place(x=75, y=270)
-
-# sign_up = Button(frame, width=6, text='sign up', border=0,
-#                  bg='white', cursor='hand2', fg='#57A1f8')
-# sign_up.place(x=215, y=270)
 
 def open_login_script():
     subprocess.Popen(["python", "registration.py"])
@@ -148,7 +135,9 @@ label = Label(frame, text='Already have an account!', fg='black',
               bg='white', font=('Microsoft YaHei UI Light', 9))
 label.place(x=79, y=300)
 
-# Create a Sign-in button
+
+### - - - - - - - - - - - - - - Create a Sign-in button - - - - - - - - - - - - - -###
+
 signin = Button(frame, width=6, text='Sign up', border=0,
                 bg='white', cursor='hand2', fg='#57a1f8', command=open_login_script)
 signin.place(x=221, y=300)
