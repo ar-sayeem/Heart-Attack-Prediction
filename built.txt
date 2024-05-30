@@ -4,13 +4,13 @@ Cp                  - Chest pain type (Typical angina; Atypical angina; Non-angi
 Trestbps            - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)
 Chol                - Serum Cholestoral in mg/dl
 Fbs                 - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]
-Restecg             - Resting electrocardiographic results (0 = normal; 1 = having ST-T; 2 = hypertrophy)
+Restecg             - Resting electrocardiographic results [Normal / Having ST-T / Hypertrophy]
 Thalach             - Maximum heart rate achieved
 Exang               - Exercise induced angina [Yes / No]
 Oldpeak             - ST depression induced by exercise relative to rest
-Slope               - The slope of the peak exercise ST segment (Upsloping; Flat; Downsloping)
-Ca                  - Number of major vessels (0-3) colored by flourosopy
-Thal(Thalassemia)   - Normal / Fixed defect / Reversable defect
+Slope               - The slope of the peak exercise ST segment [Upsloping / Flat / Downsloping]
+Ca                  - Number of major vessels [0-3] colored by flourosopy
+Thal(Thalassemia)   - [Normal / Fixed defect / Reversable defect]
 
 
 Restecg represents the resting electrocardiographic result. 
@@ -24,3 +24,5 @@ Oldpeak reflects the ST depression induced by exercise.
 Slope signifies the slope of the peak exercise ST segment. 
 
 Ca represents the number of major coronary vessels (0-3) colored by fluoroscopy.
+
+Thalach represents the maximum rate is based on your age, as subtracted from 220. So for a 50-year-old, maximum heart rate is 220 minus 50, or 170 beats per minute. 

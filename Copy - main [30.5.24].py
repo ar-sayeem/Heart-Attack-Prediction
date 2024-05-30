@@ -1,6 +1,5 @@
 from tkinter import *
 from datetime import date
-#from tkinter import _CanvasItemId
 from tkinter.ttk import Combobox
 import datetime
 import tkinter as tk
@@ -241,7 +240,6 @@ def Clear():
 
 ### - - - - - - - - - - - - - - - - - - - - - Save - - - - - - - - - - - - - - - - - - - - - ###
 
-
 def save():
     B2 = Name.get()
     C2 = Date.get()
@@ -292,25 +290,41 @@ def save():
     ### - - - - - - - - - - -- - - This will print if Save Button Clicked - - - - - - - - - - - - - - - - - ###
 
 
-    print('Date: ', C2)
+    # print('Date: ', C2)
 
-    print('Patient Name: ', B2)
-    print('Year of Birth: ', D2)
-    print('Age : ', E2)
-    print('Gender: ', F2)
-    print('CP(Chest pain type): ', G2)
-    print('Trestbps(Resting blood pressure): ', H2)
-    print('Chol(Serum Cholestoral in mg/dl): ', I2)
-    print('Fbs(Fasting blood sugar): ', J2)
-    print('Resecg(Resting electrocardiographic): ', K2)
-    print('Thalach(Maximum heart rate achieved): ', L2)
-    print('Exang(xercise induced angina): ', M2)
-    print('OldPeak(ST depression induced by exercise): ', N2)
-    print('Slope(Peak exercise ST segment): ', O2)
-    print('CA(Number of major vessels): ', P2)
-    print('Thalassemia: ', Q2)
+    # print('Patient Name: ', B2)
+    # print('Year of Birth: ', D2)
+    # print('Age : ', E2)
+    # print('Gender: ', F2)
+    # print('CP(Chest pain type): ', G2)
+    # print('Trestbps(Resting blood pressure): ', H2)
+    # print('Chol(Serum Cholestoral in mg/dl): ', I2)
+    # print('Fbs(Fasting blood sugar): ', J2)
+    # print('Resecg(Resting electrocardiographic): ', K2)
+    # print('Thalach(Maximum heart rate achieved): ', L2)
+    # print('Exang(xercise induced angina): ', M2)
+    # print('OldPeak(ST depression induced by exercise): ', N2)
+    # print('Slope(Peak exercise ST segment): ', O2)
+    # print('CA(Number of major vessels): ', P2)
+    # print('Thalassemia: ', Q2)
 
-""""""
+    print(B2)
+    print(C2)
+    print(D2)
+    print(E2)
+    print(F2)
+    print(G2)
+    print(H2)
+    print(I2)
+    print(J2)
+    print(K2)
+    print(L2)
+    print(M2)
+    print(N2)
+    print(O2)
+    print(P2)
+    print(Q2)
+
 
 ### - - - - - - - - - - - - - - - - - - - - - icon - - - - - - - - - - - - - - - - - - - - - ###
 
@@ -394,12 +408,12 @@ Label(Detail_entry, text="exang: ", font="arial 13",
 
 
 def selection():
-    if gen.get() == 'Male':      # 1
-        Gender = 'Male'     # 1
+    if gen.get() == 1:
+        Gender = 1
         return (Gender)
         print(Gender)
-    elif gen.get() == 'Female':    # 0
-        Gender = 'Female'   # 0
+    elif gen.get() == 2:
+        Gender = 0
         return (Gender)
         print(Gender)
     else:
@@ -486,17 +500,6 @@ def selection4():
     else:
         print(exang)
 
-def selection6():
-    input = restecg_combobox.get()
-    if input == "Normal":
-        return (0)
-    elif input == "Having ST-T":
-        return (1)
-    elif input == "Hypertrophy":
-        return (2)
-    else:
-        print(exang)
-
 
 def selection5():
     input = slope_combobox.get()
@@ -511,16 +514,16 @@ def selection5():
 
 
 #-----------------------------------------------Two new combobox---------------------------------------------#
-# def selection6():
-#     input = restecg_combobox.get()
-#     if input == "Normal":
-#         return (0)
-#     elif input == "Having ST-T":
-#         return (1)
-#     elif input == "Hypertrophy":
-#         return (2)
-#     else:
-#         print(exang)
+def selection6():
+    input = restecg_combobox.get()
+    if input == "Normal":
+        return (0)
+    elif input == "Having ST-T":
+        return (1)
+    elif input == "Hypertrophy":
+        return (2)
+    else:
+        print(exang)
 
 
 def selection7():
