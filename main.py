@@ -210,19 +210,22 @@ def Info():
 
     ### - - - - - - - - - - - - - - - - - - - - - info - - - - - - - - - - - - - - - - - - - - - ###
 
-    Label(icon_window,text="Age - Age in years",font="arial 11").                                                                                      place(x=20,y=100)
-    Label(icon_window,text="Sex  - Sex [Male / Female]",font="arial 11").                                                                         place(x=20,y=130)
-    Label(icon_window,text="Cp - Chest pain type [Typical angina / Atypical angina / Non-anginal pain / Asymptomatic]",font="arial 11"). place(x=20,y=160)
-    Label(icon_window,text="Trestbps - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)",font="arial 11").                                    place(x=20,y=190)
-    Label(icon_window,text="Chol - Serum Cholestoral in mg/dl",font="arial 11").                                                                        place(x=20,y=220)
-    Label(icon_window,text="Fbs - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]",font="arial 11").                                             place(x=20,y=250)
-    Label(icon_window,text="Restecg - Resting electrocardiographic results [Normal / Having ST-T / Hypertrophy]",font="arial 11").               place(x=20,y=280)
-    Label(icon_window,text="Thalach - Maximum heart rate is 220 minus your age. For a 50-year-old, it's 170 beats per minute.",font="arial 11").                                                                       place(x=20,y=310)
-    Label(icon_window,text="Exang - Exercise induced angina [Yes / No]",font="arial 11").                                                         place(x=20,y=340)
-    Label(icon_window,text="Oldpeak - ST depression induced by exercise relative to rest",font="arial 11").                                                place(x=20,y=370)
-    Label(icon_window,text="Slope - The slope of the peak exercise ST segment [Upsloping / Flat / Downsloping]",font="arial 11").              place(x=20,y=400)
-    Label(icon_window,text="Ca - Number of major vessels [0-3] colored by flourosopy",font="arial 11").                                               place(x=20,y=430)
-    Label(icon_window,text="Thal(Thalassemia) - [Normal / Fixed defect / Reversable defect]",font="arial 11").                                               place(x=20,y=460)
+    Label(icon_window,text="Age - Age in years",font="arial 11").                                                                                   place(x=20,y=100)
+    
+    Label(icon_window,text="Sex  - Sex [Male / Female]",font="arial 11").                                                                           place(x=20,y=160)
+    Label(icon_window,text="Fbs - Fasting blood sugar > (Normal 120 mg/dl) [Yes / No]",font="arial 11").                                            place(x=20,y=180)
+    Label(icon_window,text="Exang - Exercise induced angina [Yes / No]",font="arial 11").                                                           place(x=20,y=210)
+    
+    Label(icon_window,text="Cp - Chest pain type [Typical angina / Atypical angina / Non-anginal pain / Asymptomatic]",font="arial 11").            place(x=20,y=270)
+    Label(icon_window,text="Restecg - Resting electrocardiographic results [Normal / Having ST-T / Hypertrophy]",font="arial 11").                  place(x=20,y=310)
+    Label(icon_window,text="Slope - The slope of the peak exercise ST segment [Upsloping / Flat / Downsloping]",font="arial 11").                   place(x=20,y=330)
+    Label(icon_window,text="Ca - Number of major vessels [0-3] colored by flourosopy",font="arial 11").                                             place(x=20,y=360)
+    Label(icon_window,text="Thal(Thalassemia) - [Normal / Fixed defect / Reversable defect]",font="arial 11").                                      place(x=20,y=390)
+
+    Label(icon_window,text="Trestbps - Resting blood pressure (in mm Hg [Normal BPS 60 to 100] on admission to the hospital)",font="arial 11").     place(x=20,y=450)
+    Label(icon_window,text="Chol - Serum Cholestoral in mg/dl",font="arial 11").                                                                    place(x=20,y=480)
+    Label(icon_window,text="Thalach - Maximum heart rate is 220 minus your age. For a 50-year-old, it's 170 beats per minute.",font="arial 11").    place(x=20,y=510)
+    Label(icon_window,text="Oldpeak - ST depression induced by exercise relative to rest",font="arial 11").                                         place(x=20,y=540)
 
     icon_window.mainloop()
 
@@ -232,7 +235,6 @@ def Info():
 def logout():
     mroot.destroy()  # Close the current Tkinter window
     os.system("python main.py")  # Reopen the main.py script
-
 
 
 ### - - - - - - - - - - - - - - - - - - - - - CLEAR - - - - - - - - - - - - - - - - - - - - - ###
