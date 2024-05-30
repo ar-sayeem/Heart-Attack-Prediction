@@ -1,6 +1,5 @@
 from tkinter import *
 from datetime import date
-#from tkinter import _CanvasItemId
 from tkinter.ttk import Combobox
 import datetime
 import tkinter as tk
@@ -18,6 +17,13 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 from backend import *
+
+# - - - changes - - - #
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from tkinter.filedialog import asksaveasfilename
+# - - - changes - - - #
+
 
 # Need to increase
 # from sklearn.linear_model import LogisticRegression
@@ -104,19 +110,20 @@ def analysis():
     
     ### - - - - - - - - - - - - - - - - - - - - - TESTING Data Entry - - - - - - - - - - - - - - - - - - - - - ###
     ### - - - - - - - - - - -- - - This will print if Analysis Button Clicked - - - - - - - - - - - - - - - - - ###
-    print("A is age: ",A)
-    print("B is gender: ",B)
-    print("C is cp: ",C)
-    print("D is trestbps: ",D)
-    print("E is chol: ", E)
-    print("F is fbs: ",F)
-    print("G is restcg: ",G)
-    print("H is thalach: ",H)
-    print("I is Exang: ",I)
-    print(") is oldpeak: ",J)
-    print("K is slop: ",K)
-    print("L is ca: ",L)
-    print("M is thal: ",M)
+    
+    # print("A is age: ",A)
+    # print("B is gender: ",B)
+    # print("C is cp: ",C)
+    # print("D is trestbps: ",D)
+    # print("E is chol: ", E)
+    # print("F is fbs: ",F)
+    # print("G is restcg: ",G)
+    # print("H is thalach: ",H)
+    # print("I is Exang: ",I)
+    # print("J is oldpeak: ",J)
+    # print("K is slop: ",K)
+    # print("L is ca: ",L)
+    # print("M is thal: ",M)
 
 
     ### - - - - - - - - - - - - - - - - - - - - - First Graph - - - - - - - - - - - - - - - - - - - - - ###
@@ -241,47 +248,46 @@ def Clear():
 
 ### - - - - - - - - - - - - - - - - - - - - - Save - - - - - - - - - - - - - - - - - - - - - ###
 
-
 def save():
     B2 = Name.get()
     C2 = Date.get()
     D2 = DOB.get()
 
     today = datetime.date.today()
-    E2 = today.year-DOB.get()
+    E2 = today.year - DOB.get()
 
     try:
-        F2=selection()
+        F2 = selection()
     except:
-        messagebox.showerror("Mission Data","Please select gender!")
+        messagebox.showerror("Missing Data", "Please select gender!")
     try:
-        J2=selection2()
+        J2 = selection2()
     except:
-        messagebox.showerror("Mission Data", "Please select fbs!")
+        messagebox.showerror("Missing Data", "Please select fbs!")
     try:
-        M2=selection3()
+        M2 = selection3()
     except:
-        messagebox.showerror("Mission Data", "Please select exang!")
+        messagebox.showerror("Missing Data", "Please select exang!")
     try:
-        G2=selection4()
+        G2 = selection4()
     except:
-        messagebox.showerror("Mission Data","Please select cp!")
+        messagebox.showerror("Missing Data", "Please select cp!")
     try:
-        O2=selection5()
+        O2 = selection5()
     except:
-        messagebox.showerror("Mission Data","Please select slope!")
+        messagebox.showerror("Missing Data", "Please select slope!")
     try:
-        K2=restecg_combobox.get()
+        K2 = restecg_combobox.get()
     except:
-        messagebox.showerror("Mission Data","Please select restcg!")
+        messagebox.showerror("Missing Data", "Please select restcg!")
     try:
-        P2=ca_combobox.get()
+        P2 = ca_combobox.get()
     except:
-        messagebox.showerror("Mission Data","Please select ca!")
+        messagebox.showerror("Missing Data", "Please select ca!")
     try:
-        Q2=thal_combobox.get()
+        Q2 = thal_combobox.get()
     except:
-        messagebox.showerror("Mission Data","Please select thal!")
+        messagebox.showerror("Missing Data", "Please select thal!")
 
     H2 = trestbps.get()
     I2 = chol.get()
@@ -291,26 +297,62 @@ def save():
 
     ### - - - - - - - - - - -- - - This will print if Save Button Clicked - - - - - - - - - - - - - - - - - ###
 
-
     print('Date: ', C2)
 
     print('Patient Name: ', B2)
     print('Year of Birth: ', D2)
     print('Age : ', E2)
-    print('Gender: ', F2)
-    print('CP(Chest pain type): ', G2)
-    print('Trestbps(Resting blood pressure): ', H2)
-    print('Chol(Serum Cholestoral in mg/dl): ', I2)
-    print('Fbs(Fasting blood sugar): ', J2)
-    print('Resecg(Resting electrocardiographic): ', K2)
-    print('Thalach(Maximum heart rate achieved): ', L2)
-    print('Exang(xercise induced angina): ', M2)
-    print('OldPeak(ST depression induced by exercise): ', N2)
-    print('Slope(Peak exercise ST segment): ', O2)
-    print('CA(Number of major vessels): ', P2)
-    print('Thalassemia: ', Q2)
 
-""""""
+    print('Gender: ', F2)
+    print('Fbs(Fasting blood sugar): ', J2)
+    print('Exang(exercise induced angina): ', M2)
+
+    print('CP(Chest pain type): ', G2)
+
+    print('Resecg(Resting electrocardiographic): ', K2)
+    print('Trestbps(Resting blood pressure): ', H2)
+
+    print('Slope(Peak exercise ST segment): ', O2)
+    print('Chol(Serum Cholestoral in mg/dl): ', I2)
+
+    print('CA(Number of major vessels): ', P2)
+    print('Thalach(Maximum heart rate achieved): ', L2)
+    
+    print('Thalassemia: ', Q2)
+    print('OldPeak(ST depression induced by exercise): ', N2)
+
+
+    ### - - - - - - - - - - - - - - - Ask the user where to save the PDF file - - - - - - - - - - - - - - - ###
+    file_path = asksaveasfilename(defaultextension=".pdf", filetypes=[("PDF files", "*.pdf")])
+    if not file_path:
+        return
+
+    # Create the PDF
+    c = canvas.Canvas(file_path, pagesize=letter)
+    width, height = letter
+
+    c.drawString(30, height - 30, f'Date: {C2}')
+    c.drawString(30, height - 60, f'Patient Name: {B2}')
+    c.drawString(30, height - 90, f'Year of Birth: {D2}')
+    c.drawString(30, height - 120, f'Age : {E2}')
+    c.drawString(30, height - 150, f'Gender: {F2}')
+    c.drawString(30, height - 180, f'Fbs(Fasting blood sugar): {J2}')
+    c.drawString(30, height - 210, f'Exang(Exercise induced angina): {M2}')
+    c.drawString(30, height - 240, f'CP(Chest pain type): {G2}')
+    c.drawString(30, height - 270, f'Resecg(Resting electrocardiographic): {K2}')
+    c.drawString(30, height - 300, f'Trestbps(Resting blood pressure): {H2}')
+    c.drawString(30, height - 330, f'Slope(Peak exercise ST segment): {O2}')
+    c.drawString(30, height - 360, f'Chol(Serum Cholestoral in mg/dl): {I2}')
+    c.drawString(30, height - 390, f'CA(Number of major vessels): {P2}')
+    c.drawString(30, height - 420, f'Thalach(Maximum heart rate achieved): {L2}')
+    c.drawString(30, height - 450, f'Thalassemia: {Q2}')
+    c.drawString(30, height - 480, f'OldPeak(ST depression induced by exercise): {N2}')
+
+    c.showPage()
+    c.save()
+
+    messagebox.showinfo("Saved", f"Data saved successfully to {file_path}")
+
 
 ### - - - - - - - - - - - - - - - - - - - - - icon - - - - - - - - - - - - - - - - - - - - - ###
 
@@ -394,14 +436,12 @@ Label(Detail_entry, text="exang: ", font="arial 13",
 
 
 def selection():
-    if gen.get() == 'Male':      # 1
-        Gender = 'Male'     # 1
+    if gen.get() == 1:
+        Gender = 1
         return (Gender)
-        print(Gender)
-    elif gen.get() == 'Female':    # 0
-        Gender = 'Female'   # 0
+    elif gen.get() == 2:
+        Gender = 0
         return (Gender)
-        print(Gender)
     else:
         print(Gender)
 
@@ -486,17 +526,6 @@ def selection4():
     else:
         print(exang)
 
-def selection6():
-    input = restecg_combobox.get()
-    if input == "Normal":
-        return (0)
-    elif input == "Having ST-T":
-        return (1)
-    elif input == "Hypertrophy":
-        return (2)
-    else:
-        print(exang)
-
 
 def selection5():
     input = slope_combobox.get()
@@ -511,16 +540,16 @@ def selection5():
 
 
 #-----------------------------------------------Two new combobox---------------------------------------------#
-# def selection6():
-#     input = restecg_combobox.get()
-#     if input == "Normal":
-#         return (0)
-#     elif input == "Having ST-T":
-#         return (1)
-#     elif input == "Hypertrophy":
-#         return (2)
-#     else:
-#         print(exang)
+def selection6():
+    input = restecg_combobox.get()
+    if input == "Normal":
+        return (0)
+    elif input == "Having ST-T":
+        return (1)
+    elif input == "Hypertrophy":
+        return (2)
+    else:
+        print(exang)
 
 
 def selection7():
