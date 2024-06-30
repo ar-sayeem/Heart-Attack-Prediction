@@ -77,20 +77,3 @@ test_data_accuracy = accuracy_score(X_test_prediction, Y_test)
 #   print('The Person does not have a Heart Disease')
 # else:
 #   print('The Person has Heart Disease')
-
-
-
-
-##YouTube Content Creator 
-##~Parvat Computer Technology 
-##
-##
-##
-##Social media:
-##Email id: parvatcomputertechnology@gmail.com 
-##Chat support: https://www.instagram.com/pct_parvatcomputertechnology/
-##
-##
-##
-##© 2023 ParvatComputerTechnology  Delhi India, Inc. All rights reserved
-
